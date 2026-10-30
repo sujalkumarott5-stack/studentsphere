@@ -1,0 +1,5 @@
+101 "Rahul Kumar" 22 "Computer Science"
+107 "sam" 18 "computer science"
+108 "ayu" 23 "ug"
+102 "anjali" 18 "commerce"
+103 "laxmi" 19 "stat"

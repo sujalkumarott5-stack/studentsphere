@@ -1,0 +1,224 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f4ff">
+    <title>StudentSphere | Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#dashboard" aria-label="StudentSphere home">
+                <span class="brand-icon">✦</span>
+                <span>Student<span class="brand-accent">Sphere</span></span>
+            </a>
+
+            <p class="nav-label">WORKSPACE</p>
+            <nav class="navigation">
+                <a class="nav-link active" href="#dashboard">
+                    <span class="nav-icon">⌂</span> Dashboard
+                </a>
+                <a class="nav-link" href="#add-student">
+                    <span class="nav-icon">＋</span> Add Student
+                </a>
+                <a class="nav-link" href="#students">
+                    <span class="nav-icon">♧</span> View Students
+                </a>
+                <a class="nav-link" href="#about">
+                    <span class="nav-icon">ⓘ</span> About
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-orb">✧</div>
+                <p>Better students.<br><strong>Brighter future.</strong></p>
+                <span class="sidebar-heart">♥</span>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar" id="dashboard">
+                <div class="mobile-brand">
+                    <span class="brand-icon">✦</span> StudentSphere
+                </div>
+                <div class="welcome">
+                    <p class="eyebrow">YOUR STUDENT WORKSPACE</p>
+                    <h1>Welcome to <span>StudentSphere.</span></h1>
+                    <p class="welcome-subtitle">
+                        Manage student records, simply and beautifully.
+                    </p>
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-button" id="themeToggle"
+                        type="button" aria-label="Switch color theme"
+                        title="Switch theme">☾</button>
+                    <div class="portal-chip">
+                        <span class="online-dot"></span> Student Portal
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-content">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">OVERVIEW</p>
+                        <h2>Your dashboard</h2>
+                    </div>
+                    <span class="live-chip">
+                        <span class="online-dot"></span> Live records
+                    </span>
+                </div>
+
+                <section class="stats-grid" aria-label="Student statistics">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon purple">♧</span>
+                            <span class="stat-label">01</span>
+                        </div>
+                        <p class="stat-title">Total students</p>
+                        <p class="stat-value" id="totalStudents">0</p>
+                        <p class="stat-note">Registered records</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon green">▤</span>
+                            <span class="stat-label">02</span>
+                        </div>
+                        <p class="stat-title">Unique courses</p>
+                        <p class="stat-value" id="totalCourses">0</p>
+                        <p class="stat-note">Courses represented</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon orange">◷</span>
+                            <span class="stat-label">03</span>
+                        </div>
+                        <p class="stat-title">Average age</p>
+                        <p class="stat-value" id="averageAge">—</p>
+                        <p class="stat-note">Across all students</p>
+                    </article>
+
+                    <article class="stat-card featured-stat">
+                        <div class="stat-top">
+                            <span class="stat-icon pink">✧</span>
+                            <span class="stat-label">04</span>
+                        </div>
+                        <p class="stat-title">Latest addition</p>
+                        <p class="stat-value latest-name" id="latestStudent">—</p>
+                        <p class="stat-note">Most recently registered</p>
+                    </article>
+                </section>
+
+                <div class="workspace-grid">
+                    <section class="panel form-panel" id="add-student">
+                        <div class="panel-heading">
+                            <div class="heading-icon">✚</div>
+                            <div>
+                                <h2>Add a student</h2>
+                                <p>Make room for another bright future.</p>
+                            </div>
+                        </div>
+
+                        <form id="studentForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="studentId">Student ID</label>
+                                    <input type="number" id="studentId"
+                                        min="1" step="1"
+                                        placeholder="e.g. 102" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="studentName">Full name</label>
+                                    <input type="text" id="studentName"
+                                        maxlength="100"
+                                        placeholder="e.g. Aditi Sharma" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="studentAge">Age</label>
+                                    <input type="number" id="studentAge"
+                                        min="1" max="120"
+                                        placeholder="e.g. 20" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="studentCourse">Course</label>
+                                    <input type="text" id="studentCourse"
+                                        maxlength="100"
+                                        placeholder="e.g. Computer Science" required>
+                                </div>
+                            </div>
+
+                            <button class="primary-button" type="submit"
+                                id="submitButton">
+                                <span>＋</span> Add student
+                            </button>
+                            <p id="message" class="message"
+                                role="status" aria-live="polite"></p>
+                        </form>
+                    </section>
+
+                    <section class="panel records-panel" id="students">
+                        <div class="records-heading">
+                            <div class="panel-heading">
+                                <div class="heading-icon">♧</div>
+                                <div>
+                                    <h2>Student records</h2>
+                                    <p>Your growing student community.</p>
+                                </div>
+                            </div>
+                            <span class="count-pill" id="recordCount">0 records</span>
+                        </div>
+
+                        <div class="search-wrap">
+                            <span class="search-icon">⌕</span>
+                            <input type="search" id="searchInput"
+                                placeholder="Search name, ID or course..."
+                                aria-label="Search student records">
+                        </div>
+
+                        <div id="studentList" class="student-list">
+                            <div class="empty-state">
+                                <span class="empty-icon">✧</span>
+                                <h3>Finding your students...</h3>
+                                <p>Your records will appear here.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="about-strip" id="about">
+                    <div class="about-symbol">✦</div>
+                    <div>
+                        <h3>A little more organised. A lot more inspired.</h3>
+                        <p>
+                            StudentSphere is a student management project
+                            built with HTML, CSS, JavaScript and C++.
+                        </p>
+                    </div>
+                    <span class="about-decoration">✧</span>
+                </section>
+            </section>
+
+            <footer class="footer">
+                <span>Made with <span class="heart">♥</span> for learning</span>
+                <span>StudentSphere · 2026</span>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<button type="button" id="exportButton" class="export-button">
+    ↓ Export CSV
+</button>
